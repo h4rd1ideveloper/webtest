@@ -29,11 +29,18 @@
         integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         $('document').ready(() => {
+            const url = 'http://www.in.gov.br/leiturajornal?secao=dou1&data=13-03-2020&org=Minist%C3%A9rio%20da%20Sa%C3%BAde#daypicker';
             setTimeout(() => { alert('Ok') }, 100);
-            axios.get('http://www.in.gov.br/leiturajornal?secao=dou1&data=13-03-2020&org=Minist%C3%A9rio%20da%20Sa%C3%BAde#daypicker')
+            axios.get(url)
                 .then((response) => {
                     console.log(response)
                 })
+            function loadSource({url}) {
+                $.ajax({url})
+                    .done(function (html) {
+                        $("#vid").append(html); // append the html to the element with the ID 'vid'
+                    });
+            } ({url});
         })
     </script>
 </body>
