@@ -14,6 +14,7 @@
 
 <body>
     <h1>Ola</h1>
+    <div id="vid"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -38,6 +39,7 @@
             function loadSource({ url }) {
                 $.ajax({ url })
                     .done(function (html) {
+                        console.log(html)
                         $("#vid").append(html); // append the html to the element with the ID 'vid'
                     });
             } ({ url });
